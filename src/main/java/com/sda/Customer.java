@@ -9,16 +9,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
-    @OneToMany(mappedBy = "orders")
+
     @Id
     @GeneratedValue
-    int custormerId;
+    int customerId;
+    @OneToMany(mappedBy = "customer")
+    Set<aOrder> orders;
+
     String firstName;
     String lastName;
     String country;
